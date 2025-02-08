@@ -1,1 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    int frequency[26] = {0}; // (assumed lowercase only)
+
+    cout << "Please enter : ";
+    getline(cin, input);
+    for (char c : input) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            frequency[c - 'a']++;
+        }
+    }
+    cout << "Character frequency (case insensitive):" << endl;
+    for (int i = 0; i < 26; i++) {
+        if (frequency[i] > 0) {
+            cout << char('a' + i) << ": " << frequency[i] << endl;
+        }
+    }
+
+    return 0;
+}
 
